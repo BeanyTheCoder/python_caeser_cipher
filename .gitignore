@@ -1,0 +1,17 @@
+# Rename "my-venv" to the name of your virtual environment
+my-venv/
+.env/
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+*.log
+*.sqlite3
+
+.vscode/
+.idea/
+*.swp
+
+.DS_Store
+Thumbs.db
