@@ -28,7 +28,7 @@ def caeser_cipher(text, shift, mode):
         shift = -shift
 
     # alphanumerical reference
-    reference = "abcdefghijklmnopqrstuvwxyz0123456789,./;'\"[]\\-=~!@#$%^&*()"
+    reference = "abcdefghijklmnopqrstuvwxyz0123456789,.;'/[]-=~!@#$%^&*()"
 
     result = ""
 
@@ -37,11 +37,11 @@ def caeser_cipher(text, shift, mode):
             result += i
             continue
         
-        # generates a shifted index based on given shift
-        shifted_index = (reference.index(i) + shift)
+        # generates a shifted index based on given shift, modulo(%) prevent overflow
+        shifted_index = (reference.index(i) + shift)  % len(reference)
         
-        # appends a shifted character to result. modulo(%) is to prevent overflow
-        result += reference[shifted_index] % len(reference)
+        # appends a shifted character to result
+        result += reference[shifted_index]
 
     return result
 
@@ -54,3 +54,5 @@ result = caeser_cipher(text, shift, mode)
 # `\033[31m` for red color text, `\033[0` to reset the color to normal
 print(f"Result: \033[31m{result}\033[0m has been copied to clipboard for sharing and decryption")
 pyperclip.copy(result)
+
+print("tests yo")
